@@ -1,8 +1,10 @@
 import random
 
-def printspaces(num):
+
+def printSpaces(num):
     s = " "
     return s * num
+
 
 def shiftText(str):
     lines = int(input("How many lines: "))
@@ -16,32 +18,22 @@ def shiftText(str):
             for s in range(spaces):
                 if linecount >= lines:
                     break
-                print(printspaces(s % spaces) + str)
+                print(printSpaces(s % spaces) + str)
                 linecount += 1
             for s in range(spaces):
                 if linecount >= lines:
                     break
-                print(printspaces(spaces - s % spaces) + str)
+                print(printSpaces(spaces - s % spaces) + str)
                 linecount += 1
 
-def wackyText(str):
-    phrase = str
-    length = len(str)
-    for c in range(length):
-        if random.random() < .2:
-            print("make each char upper")
-        elif random.random() > .7:
-            phrase.replace(phrase[c], phrase[c].lower())
-    print(phrase)
 
+def wackySwitch(t):
+    if random.random() < .3:
+        t = t.swapcase()
+    return t
 
-
-
-
-
-
-
-
-
-
-
+def wackyText(input):  # cant use str
+    phrase = list(input)
+    wacky_phrase = [wackySwitch(t) for t in phrase]
+    result = ''.join([str(x) for x in wacky_phrase])
+    print(result)
