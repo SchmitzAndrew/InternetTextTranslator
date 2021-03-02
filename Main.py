@@ -9,9 +9,12 @@ print("4 - Text Spacer")
 print("5 - Text Reducer")
 print("6 - Text Repeater")
 
-selection = input("Enter your desired translation here: ")
+selection = int(input("Enter your desired translation here: "))
 phrase = input("Enter the phrase you would like to translate: ")
-if selection == "1":
-    shifttext(phrase)
-
+if selection == 1:
+    shiftText(phrase)
+elif selection == 2:
+    wackyText(phrase)
+else:
+    print("Not a valid selection.")
 
